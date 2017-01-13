@@ -1,5 +1,5 @@
 # estrellazul
-a simple onepage web project 
+a simple one-page web project
 
 css + jQuery
 

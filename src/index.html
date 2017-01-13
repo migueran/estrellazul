@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mainApp">
 	<head>
 		<meta charset="UTF-8">
 		<title>EstrellaAzul</title>
@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Fresca&amp;subset=latin-ext" rel="stylesheet"> 
 	</head>
-	<body>
+	<body ng-controller="mainController as vm">
 		<header class="contentW">
 			<h1><img src="assets/estrellAzul.png" alt="estrellAzul"></h1>
 		</header>
@@ -15,25 +15,51 @@
 		<div class="rw" id="c00000"></div>
 		<div class="rw cuadro" id="c00001">
 			<div class="txt" id="t00001txt01">
-				<p>Lorem ipsum</p>	
+				<p>{{vm.t00001txt01}}</p>	
 			</div>
 			<img src="assets/00001.png">			
 		</div>
 		<div class="rw cuadro" id="c00002">
 			<div class="txt" id="t00002txt01">
-				<p>Lorem ipsum</p>	
+				<p>{{vm.t00002txt01}}</p>	
 			</div>
 			<img src="assets/00002.png">
 		</div>
 		<div class="rw" id="c00003_4_5">
 			<div class="td cuadro" id="c00003">
+				<div class="txt oval" id="t00003txt01">{{vm.t00003txt01}}</div>
 				<img src="assets/00003.png">
 			</div>
 			<div class="td cuadro" id="c00004">
+				<div class="txt oval" id="t00004txt01">{{vm.t00004txt01}}</div>
 				<img src="assets/00004.png">
 			</div>
 			<div class="td cuadro" id="c00005">
+				<div class="txt oval" id="t00005txt01">{{vm.t00005txt01}}</div>
+				<div class="txt oval" id="t00005txt02">{{vm.t00005txt02}}</div>				
 				<img src="assets/00005.png">
+			</div>
+		</div>
+		<div class="rw" id="c00006_7">
+			<div class="td cuadro" id="c00006">
+				<div class="txt oval" id="t00006txt01">{{vm.t00006txt01}}</div>
+				<img src="assets/00006.png">
+			</div>
+			<div class="td cuadro" id="c00007">
+				<div class="txt oval" id="t00007txt01">{{vm.t00007txt01}}</div>
+				<img src="assets/00007.png">
+			</div>
+		</div>
+		<div class="rw" id="c00008_9">
+			<div class="td cuadro" id="c00008">
+				<div class="txt oval" id="t00008txt01">{{vm.t00008txt01}}</div>
+				<img src="assets/00008.png">
+			</div>
+			<div class="td cuadro" id="c00009">
+				<div class="txt oval" id="t00009txt01">{{vm.t00009txt01}}</div>
+				<div class="txt oval" id="t00009txt02">{{vm.t00009txt02}}</div>
+				<img src="assets/00009a.png" id="i00009img01">
+				<img src="assets/00009.png">
 			</div>
 		</div>
 		<div class="rw">
@@ -46,5 +72,9 @@
 		</footer>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="js/script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+		<script>window.angular || document.write('<script src="js.angular.min.js"><\/script>');</script>
+		<!-- <script src="https:///ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-resource.js"></script> -->
+		<script type="text/javascript" src="js/maincontroller.js"></script>
 	</body>
 </html>

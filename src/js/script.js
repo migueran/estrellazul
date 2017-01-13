@@ -9,10 +9,10 @@ $(document).ready(function(){
 	});
 
 	//inicio de la pagina
-	function inicioPage(){
+	function setPage(){
 		for(i=0; i < rwId.length; i++){
 			var j = Math.floor($(rwId[i]).offset().top - $(window).scrollTop());
-			if (j < wHeight * .9){
+			if (j < wHeight * .85){
 				$(rwId[i]).addClass('active');
 			} else{
 				$(rwId[i]).removeClass('active');
@@ -22,16 +22,10 @@ $(document).ready(function(){
 		var topIni = Math.floor(wHeight * 0.33 - $('header.contentW').height() - $('footer.contentW').height());
 		$(rwId[0]).css('height', Math.min(topIni, 300))
 	};
-	inicioPage()
+	setPage()
 
 	//activar rw
 	$(window).on('scroll',function(){
-		for(i=0; i < rwId.length; i++){
-			var j = Math.floor($(rwId[i]).offset().top - $(window).scrollTop());
-			if (j < wHeight * .9){
-				$(rwId[i]).addClass('active');
-			} else{
-				$(rwId[i]).removeClass('active');
-			}
-	}})
+		setPage()
+	})
 });
