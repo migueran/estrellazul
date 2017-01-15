@@ -86,7 +86,15 @@ header.contentW img{width: auto; margin: auto; max-width: 100%; display: block;;
 	/* Firefox */ -moz-transition: all 1s ease-in 4s;/* WebKit */ -webkit-transition: all 1s ease-in 4s;/* Opera */ -o-transition: all 1s ease-in 4s;/* Standard */ transition: all 1s ease-in 4s;}
 #t00009txt01{top:5px; left:42%; width: 45%;}
 #t00009txt02{top:75px; left:70%; width: 20%;}
-
+#c00010{}
+#t00010txt01{}
+#c00011_12{margin-top: -42px;}
+#c00011{width: 60.5%;}
+#t00011txt01{}
+#c00012{width: 56%; margin-left: -17.5%;}
+#t00012txt01{}
+#i00012imga{position: absolute; width: 49.4%; left: 32.5%; top: 125px;}
+#i00012imgb{position: absolute; width: 24%; left: 61%; top: 15px;}
 
 /*footer ***************************************** */
 #footer{}
