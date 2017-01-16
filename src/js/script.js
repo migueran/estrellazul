@@ -9,14 +9,14 @@ $(document).ready(function(){
 	});
 	//margin-top incial
 	var topIni = Math.floor(wHeight * 0.33 - $('header.contentW').height() - $('footer.contentW').height());
-	$(rwId[0]).css('height', Math.min(topIni, 300))
+	$(rwId[0]).css('height', Math.min(topIni, 150))
 
 	//inicio de la pagina
 	function setPage(){
 		var rwIdlength = rwId.length; 
 		for(i=0; i < rwIdlength; i++){
 			var j = Math.floor($(rwId[i]).offset().top - $(window).scrollTop());
-			if (j < wHeight * .85){
+			if (j < wHeight * 1.5){
 				$(rwId[i]).addClass('active');
 			} else{
 				$(rwId[i]).removeClass('active');

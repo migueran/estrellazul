@@ -8,77 +8,81 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Fresca&amp;subset=latin-ext" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="js/script.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-		<script>window.angular || document.write('<script src="js.angular.min.js"><\/script>');</script>
-		<script type="text/javascript" src="js/app.js"></script>
 	</head>
 	<body ng-controller="mainController">
 		<header class="contentW">
 			<h1><img src="assets/estrellAzul.png" alt="estrellAzul"></h1>
+			<p class="intro">{{intro}}</p>
+			<p class="lang">
+				<a ng-click="setLang('es')" href="#">español</a> | <a ng-click="setLang('en')" href="#" >english</a>
+			</p>
 		</header>
 		<main class="contentW">
 		<div class="rw" id="c00000"></div>
 		<div class="rw cuadro" id="c00001">
 			<div class="txt" id="t00001txt01">
-				<p>{{txt[0].t00001txt01[0].sp}}</p>	
+				<p>{{t00001txt01}}</p>	
 			</div>
 			<img src="assets/00001.png">			
 		</div>
 		<div class="rw cuadro" id="c00002">
 			<div class="txt" id="t00002txt01">
-				<p>{{txt[1].t00002txt01[0].sp}}</p>	
+				<p>{{t00002txt01}}</p>	
 			</div>
 			<img src="assets/00002.png">
 		</div>
 		<div class="rw" id="c00003_4_5">
 			<div class="td cuadro" id="c00003">
-				<div class="txt oval" id="t00003txt01">{{txt[2].t00003txt01[0].sp}}</div>
+				<div class="txt oval" id="t00003txt01">{{t00003txt01}}</div>
 				<img src="assets/00003.png">
 			</div>
 			<div class="td cuadro" id="c00004">
-				<div class="txt oval" id="t00004txt01">{{txt[3].t00004txt01[0].sp}}</div>
+				<div class="txt oval" id="t00004txt01">{{t00004txt01}}</div>
 				<img src="assets/00004.png">
 			</div>
 			<div class="td cuadro" id="c00005">
-				<div class="txt oval" id="t00005txt01">{{txt[4].t00005txt01[0].sp}}</div>
-				<div class="txt oval" id="t00005txt02">{{txt[5].t00005txt02[0].sp}}</div>				
+				<div class="txt oval" id="t00005txt01">{{t00005txt01}}</div>
+				<div class="txt oval" id="t00005txt02">{{t00005txt02}}</div>				
 				<img src="assets/00005.png">
 			</div>
 		</div>
 		<div class="rw" id="c00006_7">
 			<div class="td cuadro" id="c00006">
-				<div class="txt oval" id="t00006txt01">{{txt[6].t00006txt01[0].sp}}</div>
+				<div class="txt oval" id="t00006txt01">{{t00006txt01}}</div>
 				<img src="assets/00006.png">
 			</div>
 			<div class="td cuadro" id="c00007">
-				<div class="txt oval" id="t00007txt01">{{txt[7].t00007txt01[0].sp}}</div>
+				<div id="t00007txt01" class="txt">
+					<span>{{t00007txt01}}</span>
+					<img src="assets/00007txt01.png" >
+				</div>
+				<div class="txt oval" id="t00007txt02">{{t00007txt02}}</div>
 				<img src="assets/00007.png">
 			</div>
 		</div>
 		<div class="rw" id="c00008_9">
 			<div class="td cuadro" id="c00008">
-				<div class="txt oval" id="t00008txt01">{{txt[8].t00008txt01[0].sp}}</div>
+				<div class="txt oval" id="t00008txt01">{{t00008txt01}}</div>
 				<img src="assets/00008.png">
 			</div>
 			<div class="td cuadro" id="c00009">
-				<div class="txt oval" id="t00009txt01">{{txt[9].t00009txt01[0].sp}}</div>
-				<div class="txt oval" id="t00009txt02">{{txt[10].t00009txt02[0].sp}}</div>
+				<div class="txt oval" id="t00009txt01">{{t00009txt01}}</div>
+				<div class="txt oval" id="t00009txt02">{{t00009txt02}}</div>
 				<img src="assets/00009a.png" id="i00009img01">
 				<img src="assets/00009.png">
 			</div>
 		</div>
 		<div class="rw" id="c00010">
-				<div class="txt oval" id="t00010txt01">{{txt[11].t00010txt01[0].sp}}</div>
+				<div class="txt oval" id="t00010txt01">{{t00010txt01}}</div>
 				<img src="assets/00010.png">
 		</div>
 		<div class="rw" id="c00011_12">
 			<div class="td cuadro" id="c00011">
-				<div class="txt oval" id="t00011txt01">{{txt[12].t00011txt01[0].sp}}</div>
+				<div class="txt" id="t00011txt01">{{t00011txt01}}</div>
 				<img src="assets/00011.png">
 			</div>
 			<div class="td cuadro" id="c00012">
-				<div class="txt oval" id="t00012txt01">{{txt[13].t00012txt01[0].sp}}</div>
+				<div class="txt oval" id="t00012txt01">{{t00012txt01}}</div>
 				<img src="assets/00012.png">
 				<img src="assets/00012a.png" id="i00012imga">
 				<img src="assets/00012b.png" id="i00012imgb">
@@ -90,7 +94,11 @@
 		
 		</main>
 		<footer class="contentW">
-			
+			<p class="sign">{{sign}}</p>
 		</footer>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+		<script>window.angular || document.write('<script src="js.angular.min.js"><\/script>');</script>
+		<script type="text/javascript" src="js/app.js"></script>
 	</body>
 </html>

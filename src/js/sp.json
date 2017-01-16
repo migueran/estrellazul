@@ -42,8 +42,14 @@
 },
 {"t00007txt01":
 	[
-		{"sp":"¿Acaso sois esbirros del Barón Eclipse? An malherido, Mog Tagor podrá con] vosotros!", 
-		 "en":"¿Acaso sois esbirros del Barón Eclipse? An malherido, Mog Tagor podrá con] vosotros!"}
+		{"sp":"¡DETENEOS!", 
+		 "en":"¡DETENEOS!"}
+	]
+},
+{"t00007txt02":
+	[
+		{"sp":"¿Acaso sois esbirros del Barón Eclipse? An malherido, Mog Tagor podrá con vosotros!", 
+		 "en":"¿Acaso sois esbirros del Barón Eclipse? An malherido, Mog Tagor podrá con vosotros!"}
 	]
 },
 {"t00008txt01":
@@ -66,19 +72,19 @@
 },
 {"t00010txt01":
 	[
-		{"sp":"", 
+		{"sp":"¡Tal vez sólo un sueño! ¿Pero... qué sería de nosotros sin sueños? ¡Escuchad y sabréis!", 
 		 "en":""}
 	]
 },
 {"t00011txt01":
 	[
-		{"sp":"", 
+		{"sp":"Pero alguien merodeaba cerca de la astronave...", 
 		 "en":""}
 	]
 },
 {"t00012txt01":
 	[
-		{"sp":"", 
+		{"sp":"¡Esta vez no escaparás, Mog Tagor! ¡Jo, Jo, Jo!", 
 		 "en":""}
 	]
 }]
