@@ -14,11 +14,11 @@
 			<div class="contentW">
 				<h1><img src="assets/estrellAzul.png" alt="estrellAzul"></h1>
 				<p class="lang">
-					<a ng-click="setLang('es')" href="#">español(100%)</a> |
-					<a ng-click="setLang('en')" href="#">english(100%)</a> |
-					<a ng-click="setLang('fr')" href="#">français(0%)</a> |
-					<a ng-click="setLang('it')" href="#">italiano(0%)</a> | 
-					<a ng-click="setLang('pt')" href="#" >português(0%)</a>
+					<a ng-click="setLang('es')" href="#">español({{percentLangEs}}%)</a> |
+					<a ng-click="setLang('en')" href="#">english({{percentLangEn}}%)</a> |
+					<a ng-click="setLang('fr')" href="#">français({{percentLangFr}}%)</a> |
+					<a ng-click="setLang('it')" href="#">italiano({{percentLangIt}}%)</a> | 
+					<a ng-click="setLang('pt')" href="#" >português({{percentLangPt}}%)</a>
 				</p>
 			</div>
 		</header>
@@ -26,68 +26,93 @@
 		<div class="rw" id="c00000"></div>
 		<div class="rw cuadro" id="c00001">
 			<div class="txt" id="t00001txt01">
-				<p><data-text-box>{{t00001txt01}}</data-text-box></p>
+				<p><data-text-box data-value="{{t00001txt01}}" data-lang="{{actlang}}"></data-text-box></p>
 			</div>
 			<img src="assets/00001.png">			
 		</div>
 		<div class="rw cuadro" id="c00002">
 			<div class="txt" id="t00002txt01">
-				<p><data-text-box>{{t00002txt01}}</data-text-box></p>	
+				<p><data-text-box data-value="{{t00002txt01}}" data-lang="{{actlang}}""></data-text-box></p>	
 			</div>
 			<img src="assets/00002.png">
 		</div>
 		<div class="rw" id="c00003_4_5">
 			<div class="td cuadro" id="c00003">
-				<div class="txt oval" id="t00003txt01"><data-text-box>{{t00003txt01}}</data-text-box></div>
+				<div class="txt oval" id="t00003txt01">
+					<data-text-box data-value="{{t00003txt01}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
 				<img src="assets/00003.png">
 			</div>
 			<div class="td cuadro" id="c00004">
-				<div class="txt oval" id="t00004txt01"><data-text-box>{{t00004txt01}}</data-text-box></div>
+				<div class="txt oval" id="t00004txt01">
+					<data-text-box data-value="{{t00004txt01}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
 				<img src="assets/00004.png">
 			</div>
 			<div class="td cuadro" id="c00005">
-				<div class="txt oval" id="t00005txt01"><data-text-box>{{t00005txt01}}</data-text-box></div>
-				<div class="txt oval" id="t00005txt02"><data-text-box>{{t00005txt02}}</data-text-box></div>				
+				<div class="txt oval" id="t00005txt01">
+					<data-text-box data-value="{{t00005txt01}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
+				<div class="txt oval" id="t00005txt02">
+					<data-text-box data-value="{{t00005txt02}}" data-lang="{{actlang}}"></data-text-box>
+				</div>				
 				<img src="assets/00005.png">
 			</div>
 		</div>
 		<div class="rw" id="c00006_7">
 			<div class="td cuadro" id="c00006">
-				<div class="txt oval" id="t00006txt01"><data-text-box>{{t00006txt01}}</data-text-box></div>
+				<div class="txt oval" id="t00006txt01">
+					<data-text-box data-value="{{t00006txt01}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
 				<img src="assets/00006.png">
 			</div>
 			<div class="td cuadro" id="c00007">
 				<div id="t00007txt01" class="txt">
-					<span><data-text-box>{{t00007txt01}}</data-text-box></span>
+					<span>
+						<data-text-box data-value="{{t00007txt01}}" data-lang="{{actlang}}"></data-text-box></span>
 					<img src="assets/00007txt01.png" >
 				</div>
-				<div class="txt oval" id="t00007txt02"><data-text-box>{{t00007txt02}}</data-text-box></div>
+				<div class="txt oval" id="t00007txt02">
+					<data-text-box data-value="{{t00007txt02}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
 				<img src="assets/00007.png">
 			</div>
 		</div>
 		<div class="rw" id="c00008_9">
 			<div class="td cuadro" id="c00008">
-				<div class="txt oval" id="t00008txt01"><data-text-box>{{t00008txt01}}</data-text-box></div>
+				<div class="txt oval" id="t00008txt01">
+					<data-text-box data-value="{{t00008txt01}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
 				<img src="assets/00008.png">
 			</div>
 			<div class="td cuadro" id="c00009">
-				<div class="txt oval" id="t00009txt01"><data-text-box>{{t00009txt01}}</data-text-box></div>
-				<div class="txt oval" id="t00009txt02"><data-text-box>{{t00009txt02}}</data-text-box></div>
+				<div class="txt oval" id="t00009txt01">
+					<data-text-box data-value="{{t00009txt01}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
+				<div class="txt oval" id="t00009txt02">
+					<data-text-box data-value="{{t00009txt02}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
 				<img src="assets/00009a.png" id="i00009img01">
 				<img src="assets/00009.png">
 			</div>
 		</div>
 		<div class="rw" id="c00010">
-				<div class="txt oval" id="t00010txt01"><data-text-box>{{t00010txt01}}</data-text-box></div>
+				<div class="txt oval" id="t00010txt01">
+					<data-text-box data-value="{{t00010txt01}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
 				<img src="assets/00010.png">
 		</div>
 		<div class="rw" id="c00011_12">
 			<div class="td cuadro" id="c00011">
-				<div class="txt" id="t00011txt01"><data-text-box>{{t00011txt01}}</data-text-box></div>
+				<div class="txt" id="t00011txt01">
+					<data-text-box data-value="{{t00011txt01}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
 				<img src="assets/00011.png">
 			</div>
 			<div class="td cuadro" id="c00012">
-				<div class="txt oval" id="t00012txt01"><data-text-box>{{t00012txt01}}</data-text-box></div>
+				<div class="txt oval" id="t00012txt01">
+					<data-text-box data-value="{{t00012txt01}}" data-lang="{{actlang}}"></data-text-box>
+				</div>
 				<img src="assets/00012.png">
 				<img src="assets/00012a.png" id="i00012imga">
 				<img src="assets/00012b.png" id="i00012imgb">
@@ -100,9 +125,6 @@
 		</main>
 		<footer id="footer">
 			<div class="contentW">
-				<div class="myModal" ng-controller="newLangController">
-					{{valor}}
-				</div>
 				<p class="intro">{{intro}} | {{sign}}</p>
 			</div>
 		</footer>

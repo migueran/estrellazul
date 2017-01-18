@@ -41,6 +41,8 @@ footer#footer{position: fixed; bottom: 0;background:#222; width: 100%; z-index: 
 .active .txt p{opacity: 1;
 	/* Firefox */ -moz-transition: opacity 2s ease-in;/* WebKit */ -webkit-transition: opacity 2s ease-in;/* Opera */ -o-transition: opacity 2s ease-in;/* Standard */ transition: opacity 2s ease-in;}
 .globo{position: absolute; background-color: #fff; border: solid 2px #000; text-align: center; border-radius: 25px;font-family: 'Fresca', sans-serif;}
+.icoEdit{ display: inline-block; background-image: url('../assets/icoEdit.png') no-repeat; cursor: pointer;}
+.modalView{ position: absolute; background-color: #fff; }
 			
 /*header ***************************************** */
 header#header img{width: auto; margin: auto; max-width: 50%; display: block;;}
@@ -79,7 +81,7 @@ header#header img{width: auto; margin: auto; max-width: 50%; display: block;;}
 .active #c00007{ top: 0px;
 	/* Firefox */ -moz-transition: top 2s ease-in;/* WebKit */ -webkit-transition: top 2s ease-in;/* Opera */ -o-transition: top 2s ease-in;/* Standard */ transition: top 2s ease-in;}
 #t00007txt01{position:absolute; top:0; left:-28%; width: 67%;}
-#t00007txt01 span{position: absolute; top: 83px; text-align: center; left: 25%; font-size: 168%;}
+#t00007txt01 > span{position: absolute; top: 83px; text-align: center; left: 25%; font-size: 168%;}
 #t00007txt02{top:-7px; left:24%; width: 35%;}
 #c00008{width: 31.8%;}
 #t00008txt01{top:-15px; left:1%; width: 33%;}

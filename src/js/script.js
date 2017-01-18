@@ -16,7 +16,7 @@ $(document).ready(function(){
 		var rwIdlength = rwId.length; 
 		for(i=0; i < rwIdlength; i++){
 			var j = Math.floor($(rwId[i]).offset().top - $(window).scrollTop());
-			if (j < wHeight * 1.1){
+			if (j < wHeight * 1.3){
 				$(rwId[i]).addClass('active');
 			} else{
 				$(rwId[i]).removeClass('active');
