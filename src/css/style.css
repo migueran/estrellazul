@@ -24,6 +24,8 @@ body{background:#222;line-height: 1.2; color: #fff;}
 .contentW{max-width:820px; min-width: 450px; margin-left:auto; margin-right:auto;}
 main.contentW{background-color: #eaeaea; padding: 15px;
 	box-shadow: 3px 3px 15px #000;}
+.fLeft{}
+.fRight{}
 header#header{position: fixed; top: 0;background:#222; width: 100%; z-index: 100;}
 footer#footer{position: fixed; bottom: 0;background:#222; width: 100%; z-index: 100;}
 .rw{width: 100%; position: relative; clear: both; margin-top: 350px; opacity: 0; max-height: 0px; overflow: hidden; white-space: nowrap;
@@ -32,7 +34,7 @@ footer#footer{position: fixed; bottom: 0;background:#222; width: 100%; z-index: 
 	/* Firefox */ -moz-transition: margin-top 2s ease-in,  opacity 1s ease-in, max-height 1s ease-in;/* WebKit */ -webkit-transition: margin-top 2s ease-in,  opacity 1s ease-in, max-height 1s ease-in;/* Opera */ -o-transition: margin-top 2s ease-in,  opacity 1s ease-in, max-height 1s ease-in;/* Standard */ transition: margin-top 2s ease-in,  opacity 1s ease-in, max-height 1s ease-in;}
 .td{display: inline-block; position: relative;}
 .txt{position: absolute; background-size: 100%; font-size: 1rem; font-style: italic; font-variant: small-caps; color: #666;background-repeat: no-repeat; max-height: 115%; text-align: center;font-family: 'Fresca', sans-serif; white-space: normal;line-height: .9; z-index: 1}
-.oval{background-color: #fff; border: 1px solid #000; border-radius: 50%; padding: 9px 25px; max-width: 0px; max-height: 0px; overflow: hidden; opacity: 0;
+.oval{background-color: #fff; border: 1px solid #000; border-radius: 50%; padding: 9px 25px; max-width: 0px; max-height: 0px; /*overflow: hidden;*/ opacity: 0;
 	/* Firefox */ -moz-transition: all 2s ease-in 2s;/* WebKit */ -webkit-transition: all 2s ease-in 2s;/* Opera */ -o-transition: all 2s ease-in 2s;/* Standard */ transition: all 2s ease-in 2s;}
 .active .oval{max-width: 2000px; max-height: 2000px; opacity: 1;
 	/* Firefox */ -moz-transition: all 2s ease-in 2s;/* WebKit */ -webkit-transition: all 2s ease-in 2s;/* Opera */ -o-transition: all 2s ease-in 2s;/* Standard */ transition: all 2s ease-in 2s;}
@@ -41,8 +43,11 @@ footer#footer{position: fixed; bottom: 0;background:#222; width: 100%; z-index: 
 .active .txt p{opacity: 1;
 	/* Firefox */ -moz-transition: opacity 2s ease-in;/* WebKit */ -webkit-transition: opacity 2s ease-in;/* Opera */ -o-transition: opacity 2s ease-in;/* Standard */ transition: opacity 2s ease-in;}
 .globo{position: absolute; background-color: #fff; border: solid 2px #000; text-align: center; border-radius: 25px;font-family: 'Fresca', sans-serif;}
-.icoEdit{ display: inline-block; background-image: url('../assets/icoEdit.png') no-repeat; cursor: pointer;}
-.modalView{ position: absolute; background-color: #fff; }
+.icoEdit{ display: inline-block; background: url('../assets/icoEdit.png') no-repeat top left; cursor: pointer; width: 36px; height: 36px; position: relative; z-index: 150;}
+.modalView{ position: absolute; background-color: #eaeaea; box-shadow: 3px 3px 15px #000; margin-top: 10px; margin-left: 70%; border-radius: 3px; padding: 10px; min-width: 150px; width: 250%; font-size: 1.3rem; z-index: 250;}
+.modalView span{font-size: 0.9rem; font-weight: bold;}
+.modalView  input{width: 100%;}
+.langTrue, .LangActual{margin: 10px; background-color: #fff; padding: 5px; border-radius: 3px; text-align: left;}
 			
 /*header ***************************************** */
 header#header img{width: auto; margin: auto; max-width: 50%; display: block;;}
@@ -78,6 +83,7 @@ header#header img{width: auto; margin: auto; max-width: 50%; display: block;;}
 #t00006txt01{top:15px; left:-1%; width: 49%;}
 #c00007{width: 71.7%; margin-left: -2.5%; top: 50px; position: relative;
 	/* Firefox */ -moz-transition: top 2s ease-in;/* WebKit */ -webkit-transition: top 2s ease-in;/* Opera */ -o-transition: top 2s ease-in;/* Standard */ transition: top 2s ease-in;}
+#i0007imga{position: absolute; left: 0; top: 0;}
 .active #c00007{ top: 0px;
 	/* Firefox */ -moz-transition: top 2s ease-in;/* WebKit */ -webkit-transition: top 2s ease-in;/* Opera */ -o-transition: top 2s ease-in;/* Standard */ transition: top 2s ease-in;}
 #t00007txt01{position:absolute; top:0; left:-28%; width: 67%;}
@@ -100,8 +106,8 @@ header#header img{width: auto; margin: auto; max-width: 50%; display: block;;}
 #t00011txt01{left: 63%; top: 175px; width: 26%;}
 #c00012{width: 56%; margin-left: -17.5%;}
 #t00012txt01{left: 17%; top: 10px; width: 25%;}
-#i00012imga{position: absolute; width: 49.4%; left: 32.5%; top: 125px;}
-#i00012imgb{position: absolute; width: 24%; left: 61%; top: 15px;}
+#i00012imga{position: absolute; left: 0; top: 0;}
+#i00012imgb{position: absolute; left: 0; top: 0;}
 
 /*footer ***************************************** */
 #footer{}
