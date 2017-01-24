@@ -152,7 +152,7 @@ function mainController (myService){
     //servicio
     vm.txtService = myService.getService();
 
-    vm.actlang = 'it';
+    vm.actlang = 'es';
     vm.sign = 'mrando.via@gmail.com';
 
     //txt porcentaje de traduccion
@@ -162,12 +162,6 @@ function mainController (myService){
     vm.percentLangIt = percentLang('it');
     vm.percentLangPt = percentLang('pt');
     
-    vm.setLang = function (lang){
-        vm.actlang=lang;
-        vm.intro = setIntro();
-        return vm.actlang;
-    };
-
     function percentLang(lang){
         var elementos = [];
         vm.txtService.forEach(function (elem) {
@@ -178,9 +172,16 @@ function mainController (myService){
         return salida;
     };
 
-    //txt intro
-    vm.intro = setIntro();
-    function setIntro(){
-        return vm.txtService[0][vm.actlang];
+    //seteo lenguaje
+    vm.setLang = function (lang){
+        vm.actlang=lang;
+        vm.intro = setTxt(0);
+        return vm.actlang;
+    };
+
+    //seteo intro
+    vm.intro = setTxt(0);
+    function setTxt(index){
+        return vm.txtService[index][vm.actlang];
     };
 }

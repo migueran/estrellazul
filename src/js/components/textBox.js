@@ -7,7 +7,7 @@ angular.module('textBox', [/*'textBox'*/])
           lang: '@',
           box: '@'
         },
-    template:'<span ng-init="$ctrl.setTxt()">{{$ctrl.value}}</span>'+
+    template:'<span ng-init="$ctrl.setTxt()" ng-changes($ctrl.lang)="$ctrl.setTxt()">{{$ctrl.txtvalue}}</span>'+
         '<div ng-if="$ctrl.showEdit">'+
         '<span ng-click="$ctrl.setForm()" class="icoEdit"> </span>'+
         '<div class="modalView" ng-Show="$ctrl.showModal">'+
@@ -22,24 +22,22 @@ angular.module('textBox', [/*'textBox'*/])
         vm.txtService = myService.getService();
         vm.showEdit = false;
         vm.showModal = false;
-        vm.value = '';
-        vm.base = '';
-        vm.nueva = '';
         vm.baseTr = [];
         vm.nuevaTr = [];
         var completa = [];
 
         //seteo la pagina
-        vm.setTxt = function(){
+        vm.setTxt = function(lang){
             vm.txtService.forEach(function(elem){
                 if(elem.id === vm.box){//
                     completa = elem;
                     };
                 });
-            vm.value = completa[vm.lang];
-            if(vm.value == ''){
+            vm.txtvalue = completa[vm.lang];
+            vm.showEdit = false;
+            if(vm.txtvalue == ''){
                 vm.showEdit = true;
-                vm.value = vm.txtService[1][vm.lang];
+                vm.txtvalue = vm.txtService[1][vm.lang];
                 }
             }
 
@@ -57,17 +55,19 @@ angular.module('textBox', [/*'textBox'*/])
                 vm.nueva = vm.nuevaTr[vm.lang];
                 }
             }
-
         vm.baseEsp = function(){
             vm.base = completa.es;
-            }
+            };
         vm.baseEn = function(){
             vm.base = completa.en;
-            }
+            };
         vm.saveN = function(){
             console.log(vm.nueva);
-            }
-        
+            };
+        //verifico los cambios para actualizar texto
+        vm.$onChanges = function() {
+          vm.setTxt();
+            };
         }
     }
 )
