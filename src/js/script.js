@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function(){
 	var wHeight = $(window).height();
 	var rwId = [];
@@ -14,7 +16,7 @@ $(document).ready(function(){
 	//inicio de la pagina
 	function setPage(){
 		var rwIdlength = rwId.length; 
-		for(i=0; i < rwIdlength; i++){
+		for(var i=0; i < rwIdlength; i++){
 			var j = Math.floor($(rwId[i]).offset().top - $(window).scrollTop());
 			if (j < wHeight * 1.3){
 				$(rwId[i]).addClass('active');

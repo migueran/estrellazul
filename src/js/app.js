@@ -1,37 +1,10 @@
-var app = angular.module("app", [])
-.directive('textBox', function(){
-    return {
-        return: 'AE',
-        scope: {  
-          value: '@',
-          lang: '@',
-          id: '@'
-        },
-        controller: 'controllerDir',
-        template:'<span>{{value}}{{welcome}}</span>'+
-        '<div ng-if="!value">'+
-        '<span ng-click="showModal=!showModal" class="icoEdit"> </span>'+
-        '<div class="modalView" ng-Show="showModal">'+
-            '<div class="langTrue">{{langB}}<div></div>{{baseTr[0]}}</div>'+
-            '<span class="fLeft"> << </span> <span class="fRight"> >> </span>'+
-            '<div class="LangActual">{{langA}}<div></div><input value="{{nuevaTr[0]}}"/></div>'+
-            '<button ng-click="showModal=!showModal" class="fRight"> close </button> <button class="fRight"> save </button>'+
-            '</div>'+
-        '</div>',
-        link : function(scope, elem, attrs, ctrl){
-            /*scope.langB = 'lenguaje before';
-            scope.langA = 'lenguaje after';
-            scope.valueB = baseTr[0];
-            scope.valueA = nuevaTr[0];*/
-            if(attrs.value == ''){
-                ctrl.setForm(attrs.id, attrs.lang);
-            }
-        }
-    }
-})
+'use strict';
 
-//servicio
-    app.service('myService', function(){
+angular.module("app", ['textBox'])
+.service('myService', myService)
+.controller("mainController", mainController);
+
+function myService(){
         this.getService = function(){
         return [
                 {  
@@ -76,7 +49,7 @@ var app = angular.module("app", [])
                 },
                 {
                     id: "t00004txt01",
-                    es: "¡Una nave espacial! ¡Porlo menos hace doscientos que no veía una!", 
+                    es: "¡Una nave espacial! ¡Porlo menos hace doscientos años que no veía una!", 
                     en: "A space ship! At least two hundred years ago I did not see one!",
                     fr: "",
                     it: "",
@@ -172,99 +145,42 @@ var app = angular.module("app", [])
                 }
             ]
         }
-    });
-
-app.controller("mainController", function($scope, myService){
-    //servicio
-    $scope.txtService = myService.getService();
-
-    $scope.actlang = 'it';
-    $scope.sign = 'mrando.via@gmail.com';
-    $scope.percentLangEs = percentLang('es');
-    $scope.percentLangEn = percentLang('en')
-    $scope.percentLangFr = percentLang('fr')
-    $scope.percentLangIt = percentLang('it')
-    $scope.percentLangPt = percentLang('pt')
-    
-    $scope.setLang = function(actlang){
-        $scope.actlang=actlang;
-        $scope.setTxt();
-        return $scope.actlang;
     }
+
+function mainController (myService){
+    var vm = this;
+    //servicio
+    vm.txtService = myService.getService();
+
+    vm.actlang = 'it';
+    vm.sign = 'mrando.via@gmail.com';
+
+    //txt porcentaje de traduccion
+    vm.percentLangEs = percentLang('es');
+    vm.percentLangEn = percentLang('en');
+    vm.percentLangFr = percentLang('fr');
+    vm.percentLangIt = percentLang('it');
+    vm.percentLangPt = percentLang('pt');
+    
+    vm.setLang = function (lang){
+        vm.actlang=lang;
+        vm.intro = setIntro();
+        return vm.actlang;
+    };
 
     function percentLang(lang){
         var elementos = [];
-        $scope.txtService.forEach(function (elem) {
-          /*return  elem == $scope.txtService[1];*/
+        vm.txtService.forEach(function (elem) {
           elementos.push(elem[lang]);        
         })
-
-
         var activos = elementos.filter(function(e){return e != '';})
         var salida = Math.floor(activos.length / elementos.length * 100);
         return salida;
-    } 
+    };
 
-/*    function testJson(element, index) {
-            var value = 't00012txt01';
-            var lang = $scope.actlang;
-            if(element.id == value)
-            {
-                console.log("a[" + index + "] = " + element[lang]);
-                console.log(Object.keys(element) )
-            }
-        }*/
-    /*$scope.txtService.forEach(testJson);*/
-
-    var lang = function(n, lang){
-        var salida = $scope.txtService[n][lang];
-        return salida;
-    }
-
-    $scope.setTxt = function(){
-        $scope.intro = lang(0, $scope.actlang);
-        $scope.t00001txt00 = lang(1, $scope.actlang);
-        $scope.t00001txt01 = lang(2, $scope.actlang);
-        $scope.t00002txt01 = lang(3, $scope.actlang);
-        $scope.t00003txt01 = lang(4, $scope.actlang);
-        $scope.t00004txt01 = lang(5, $scope.actlang);
-        $scope.t00005txt01 = lang(6, $scope.actlang);
-        $scope.t00005txt02 = lang(7, $scope.actlang);
-        $scope.t00006txt01 = lang(8, $scope.actlang);
-        $scope.t00007txt01 = lang(9, $scope.actlang);
-        $scope.t00007txt02 = lang(10, $scope.actlang);
-        $scope.t00008txt01 = lang(11, $scope.actlang);
-        $scope.t00009txt01 = lang(12, $scope.actlang);
-        $scope.t00009txt02 = lang(13, $scope.actlang);
-        $scope.t00010txt01 = lang(14, $scope.actlang);
-        $scope.t00011txt01 = lang(15, $scope.actlang);
-        $scope.t00012txt01 = lang(16, $scope.actlang);
-    }
-    $scope.setTxt();
-
-});
-
-app.controller("controllerDir", function($scope, myService){
-    this.txtService = myService.getService();
-    $scope.baseTr = [];
-    $scope.nuevaTr = [];
-    var completa = [];
-    this.setForm = function(actualId, lang){
-    $scope.welcome = this.txtService[1][lang];
-    this.txtService.forEach(function(elem){
-        if(elem.id === actualId){
-            completa = elem;
-            };
-        });
-    for(var i in completa) {
-            if(completa[i] === actualId){
-            }else if(completa[i] !== ''){
-                $scope.baseTr.push(completa[i]);
-            }else{
-                $scope.nuevaTr.push(completa[i]);
-            };
-        }
-    console.log($scope.baseTr[0])
-    }
-    /*$scope.test(console.log('hola'));*/
-});
+    //txt intro
+    vm.intro = setIntro();
+    function setIntro(){
+        return vm.txtService[0][vm.actlang];
+    };
+}
