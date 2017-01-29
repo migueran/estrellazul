@@ -1,13 +1,12 @@
 'use strict';
 
-angular.module('textBox', [/*'textBox'*/])
-.service('myService', myService)
+angular.module('textBox', ['service'])
 .component('textBox', {
    bindings: {
           lang: '@',
           box: '@'
         },
-    template:'<span ng-init="$ctrl.setTxt()" ng-changes($ctrl.lang)="$ctrl.setTxt()">{{$ctrl.txtvalue}}</span>'+
+    template:'<span ng-init="$ctrl.setTxt()" ng-changes($ctrl.lang)="$ctrl.setTxt()" ng>{{$ctrl.txtvalue}}</span>'+
         '<div ng-if="$ctrl.showEdit">'+
         '<span ng-click="$ctrl.setForm()" class="icoEdit"> </span>'+
         '<div class="modalView" ng-Show="$ctrl.showModal">'+
@@ -20,8 +19,7 @@ angular.module('textBox', [/*'textBox'*/])
     controller: function(myService){
         var vm = this;
         vm.txtService = myService.getService();
-        vm.showEdit = false;
-        vm.showModal = false;
+        vm.showModal = '';
         vm.baseTr = [];
         vm.nuevaTr = [];
         var completa = [];
@@ -38,6 +36,8 @@ angular.module('textBox', [/*'textBox'*/])
             if(vm.txtvalue == ''){
                 vm.showEdit = true;
                 vm.txtvalue = vm.txtService[1][vm.lang];
+            }else{
+            vm.showModal = false;
                 }
             }
 
@@ -65,8 +65,8 @@ angular.module('textBox', [/*'textBox'*/])
             console.log(vm.nueva);
             };
         //verifico los cambios para actualizar texto
-        vm.$onChanges = function() {
-          vm.setTxt();
+        vm.$onChanges = function(lang) {
+            vm.setTxt();
             };
         }
     }
