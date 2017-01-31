@@ -144,24 +144,34 @@ angular.module("service", [])
         return {
             getService : function(){
                 return data;
-                }/*,*/
-            /*percentLang : function(lang){
-                var elementos = [];
-                data.forEach(function (elem) {
-                  elementos.push(elem[lang]);        
-                })
-                var activos = elementos.filter(function(e){return e != '';})
-                var salida = Math.floor(activos.length / elementos.length * 100);
-                return salida, activos;
                 },
-            setTxt : function(lang, box){
+            getPercentLang : function(lang){
+                var salida, activos;
+                var totalLang = [];
+                data.forEach(function(elem) {
+                    totalLang.push(elem[lang]);
+                });
+                activos = totalLang.filter(function(e){return e != '';});
+                salida = Math.floor(activos.length / totalLang.length * 100);
+                return salida;
+                },
+            getThisLangTxt : function(lang, idTxt){
+                var boxThisTxt;
                 data.forEach(function(elem){
-                    if(elem.id === box){//
-                        completa = elem;
-                        };
-                    });
-                console.log(completa)
-                return completa[lang];
-                }*/
+                if(elem.id === idTxt){//
+                    boxThisTxt = elem[lang];
+                    }
+                });
+                return boxThisTxt;
+                },
+            getThisTxt : function(idTxt){
+                var boxTxt;
+                data.forEach(function(elem){
+                if(elem.id === idTxt){
+                    boxTxt = elem;
+                    }
+                });
+                return boxTxt;
+                }
             }
     }]);
