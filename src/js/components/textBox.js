@@ -12,51 +12,61 @@ angular.module('textBox', ['service'])
         '<div class="modalView" ng-Show="$ctrl.showModal">'+
             '<div>{{$ctrl.base}}</div>'+
             '<span class="fLeft" ng-click="$ctrl.baseEsp()"> Español </span> | <span class="fRight" ng-click="$ctrl.baseEn()"> English </span>'+
-            '<div class="LangActual">{{$ctrl.lang}}<div><input value="{{$ctrl.nueva}}"/></div></div>'+
+            '<div class="LangActual">{{$ctrl.langActTitle}}<div><input value="{{$ctrl.nueva}}"/></div></div>'+
             '<button ng-click="$ctrl.showModal=!$ctrl.showModal" class="fRight"> close </button>'+
             '<button ng-click="$ctrl.saveN()" class="fRight"> save </button>'+
         '</div>',
     controller: function(myService){
         var vm = this;
-        vm.txtService = myService.getService();
         vm.showModal = '';
-        vm.baseTr = [];
-        vm.nuevaTr = [];
-        var completa = [];
+        vm.completa = [];
+        vm.langs = [];
+        vm.langActTitle;
+
 
         //seteo la pagina
         vm.setTxt = function(){
             vm.txtvalue = myService.getThisLangTxt(vm.lang, vm.box);
-            vm.showEdit = false;
+            vm.showEdit = false; //ocultar, no borrar // creo el var createEdit = false?
             if  (vm.txtvalue == ''){
                 vm.showEdit = true;
                 vm.txtvalue = myService.getThisLangTxt(vm.lang, 't00000txt01');
             } else {
-            vm.showModal = false;
+                vm.showModal = false;
             }
         }
 
         //seteo formulario traducion
         vm.setForm = function (){
-            vm.showModal = !vm.showModal;
+            vm.showModal = true;
             vm.completa = myService.getThisTxt(vm.box);
-            /*for(var i in completa) {
-                if(completa[i] !== ''){
-                    vm.baseTr.push(completa[i]); //sumo pares
-                }else{
-                    vm.nuevaTr.push(completa[i]); //sumo pares
-                }
-                vm.base = vm.completa[vm.lang];
-                vm.nueva = vm.nuevaTr[0];
-                }*/
+            vm.langs = myService.getThisTxt('lenguajes');
+            //genero el obje1 box y su metodo new
+                for(var i in vm.completa) {
+                    if (vm.completa[i] !== '' & vm.completa[i] !== vm.box){
+                        // genero objeto bloque texto por lenguaje
+                        // genero el boton por lenguaje y su metodo
+                        }else if (vm.completa[i] === ''){
+                            // genero objeto bloque texto por lenguaje
+                        }
+                    }
+                vm.base = vm.completa.es;
+                vm.configForm();
             }
+        vm.configForm = function (){
+            vm.nueva = vm.completa[vm.lang]; // apunto objeto idioma actual
+            vm.langActTitle = vm.langs[vm.lang];
+            console.log(vm.langActTitle);
+        }
+                
         //funciones para sumar idiomas
         vm.baseEsp = function(){
-            vm.base = vm.completa.es;
+            vm.base =  vm.completa.es; //borrar
             }
         vm.baseEn = function(){
-            vm.base = vm.completa.en;
+            vm.base = vm.completa.en; //borrar;
             }
+        // salvo y exporto al servicio
         vm.saveN = function(){
             console.log(vm.nueva);
             }
@@ -64,6 +74,7 @@ angular.module('textBox', ['service'])
         //verifico los cambios para actualizar texto
         vm.$onChanges = function(lang) {
             vm.setTxt();
+            if(vm.showModal){vm.configForm()}
             }
         }
     }

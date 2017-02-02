@@ -4,6 +4,14 @@ angular.module("service", [])
     .factory('myService', [function(){
         var completa = [];
         var data = [
+                {
+                    id: "lenguajes",
+                    es: "Español", 
+                    en: "English",
+                    fr: "Français",
+                    it: "Italiano",
+                    pt: "Português"
+                },
                 {  
                     id: "intro",
                     es : 'Estrellazul apareció en la revista Anteojito en los años 80, con guión y dibujos que Quique Alcatena, como parte de una serie de obras de fantasía y ciencia ficción.',
@@ -142,9 +150,6 @@ angular.module("service", [])
                 }
             ];
         return {
-            getService : function(){
-                return data;
-                },
             getPercentLang : function(lang){
                 var salida, activos;
                 var totalLang = [];
@@ -152,7 +157,7 @@ angular.module("service", [])
                     totalLang.push(elem[lang]);
                 });
                 activos = totalLang.filter(function(e){return e != '';});
-                salida = Math.floor(activos.length / totalLang.length * 100);
+                salida = Math.floor((activos.length - 2) / (totalLang.length - 2) * 100);
                 return salida;
                 },
             getThisLangTxt : function(lang, idTxt){
