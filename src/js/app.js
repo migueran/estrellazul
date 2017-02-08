@@ -10,16 +10,20 @@ function mainController (myService){
     vm.sign = 'mrando.via@gmail.com';
 
     //txt porcentaje de traduccion
-    vm.percentLangEs = myService.getPercentLang('es');
-    vm.percentLangEn = myService.getPercentLang('en');
-    vm.percentLangFr = myService.getPercentLang('fr');
-    vm.percentLangIt = myService.getPercentLang('it');
-    vm.percentLangPt = myService.getPercentLang('pt');
+    function percentLang(){
+        vm.percentLangEs = myService.getPercentLang('es');
+        vm.percentLangEn = myService.getPercentLang('en');
+        vm.percentLangFr = myService.getPercentLang('fr');
+        vm.percentLangIt = myService.getPercentLang('it');
+        vm.percentLangPt = myService.getPercentLang('pt');
+    }
+    percentLang();
  
     //seteo lenguaje
     vm.setLang = function (lang){
         vm.actlang = lang;
         vm.intro = setIntro();
+        percentLang();
         return vm.actlang;
     }
 
@@ -28,4 +32,7 @@ function mainController (myService){
     function setIntro(){
         return myService.getThisLangTxt(vm.actlang,'intro');
     }
+
+    //verifico los cambios para actualizar porcentaje
+
 }
