@@ -181,14 +181,11 @@ angular.module("service", [])
                 var index;
                 data.forEach(function(e){
                     if(e.id === idTxt){
-                        index = e;
+                        index = data.indexOf(e);
                     }
                     return index;
                 });
-                console.log(index);
-                var index = 15;
                 data[index][lang]=content;
-                console.log(data[index]);
                 }
             }
     }]);
